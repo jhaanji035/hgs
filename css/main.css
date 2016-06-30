@@ -2362,7 +2362,6 @@ ul.sidebar-gallery {
 
 .post_reply_comments:before {
   border-color: transparent #F0F0F0 transparent transparent;
-  border-style: solid;
   border-width: 15px;
   content: " ";
   height: 0;

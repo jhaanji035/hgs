@@ -2,9 +2,14 @@
 	header('Content-type: application/json');
 	$status = array(
 		'type'=>'success',
-		'message'=>'Thank you for contact us. As early as possible  we will contact you '
+		'message'=>'Thank you for contact us. As early as possible  we will contact you ',
+		'status'=>true
 	);
-
+	$error= array(
+		'type'=>'error',
+		'message'=>'Something went wrong, Please try aagain. ',
+		'status'=>false
+	);
     $name = @trim(stripslashes($_POST['name'])); 
     $email = @trim(stripslashes($_POST['email'])); 
     $subject = @trim(stripslashes($_POST['subject'])); 
@@ -17,5 +22,9 @@
 
     $success = @mail($email_to, $subject, $body, 'From: <'.$email_from.'>');
 
-    echo json_encode($status);
+    if($success){
+		echo json_encode($status);
+	}else{
+		echo json_encode($status);
+	}
     die;
